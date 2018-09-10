@@ -1,0 +1,15 @@
+.box-header {
+    color: #444;
+    display: block;
+    position: relative;
+    width: 28%
+}
+.box-title {
+    color: #4770ff;
+    border-bottom: 1px solid #496fff;
+    padding: 10px 100px 10px 0;
+    font-weight: 600;
+}
+::-webkit-scrollbar {
+display: none;
+}
