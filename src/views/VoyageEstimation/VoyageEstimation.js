@@ -32,6 +32,8 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import DeleteIcon from "@material-ui/icons/Delete";
 
+import GoogleMapReact from 'google-map-react';
+
 import CTable from "./CTable";
 import timeTable1 from "./data/timeTable1";
 import timeTable2 from "./data/timeTable2";
@@ -67,6 +69,13 @@ class VoyageEstimation extends Component {
     checkedC: false,
     checkedD: false,
     checkedH: false
+  };
+  static defaultProps = {
+    center: {
+      lat: 59.95,
+      lng: 30.33
+    },
+    zoom: 11
   };
 
   handleChange = event => {
@@ -115,7 +124,21 @@ class VoyageEstimation extends Component {
           <Grid item xs={12}>
             <Paper className={classes.paper}>
               <div className="box-header">
-                <h3 className="box-title">Voyage Estimation</h3>
+         <h3 className="box-title">Voyage Estimation</h3>
+         <div style={{ height: '50vh', width: '350%' }}>
+            <GoogleMapReact
+                className="container karta"
+                bootstrapURLKeys={{
+                    key:'AIzaSyCK6F8nozLf6lsWjxoQK-ATaXsgzI8gjrw',
+                    language: 'en',
+                }}
+                defaultCenter={{lat: 59.95, lng: 30.33}}
+                defaultZoom={11}
+            >
+            </GoogleMapReact>
+      </div>
+        
+               
               </div>
 
               <Grid container>
@@ -889,14 +912,15 @@ class VoyageEstimation extends Component {
                   >
                     Confirm
                   </Button>
-                  <Button
+                 
+                </div> 
+                 <Button
                     variant="outlined"
                     size="medium"
                     className={classes.AbortButton}
                   >
                     Abort
                   </Button>
-                </div>
               </List>
             </div>
           </Paper>
@@ -933,8 +957,9 @@ const styles = theme => ({
     color: " #46d7b6"
   },
   buttonStyle: {
-    margin: "4%",
-    marginTop: "-53%"
+    margin: "2%",
+    marginTop: "-53%",
+      display:"flex"
   },
   SaveButton: {
     backgroundColor: "#46d7b6"
